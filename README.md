@@ -1,46 +1,80 @@
-# Getting Started with Create React App
+# 디렉셔널 과제 테스트 - Tic Tac Toe 게임 변형
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🎯 게임 방법
 
-## Available Scripts
+- 게임보드는 3x3, 4x4, 5x5 또는 그 이상의 격자 형태입니다.
+- 플레이어 두명은 번갈아 가면서 마크가 없는 격자 칸 하나에 자신의 마크를 표시합니다.
+- 마크를 놓았을 때 가로, 세로, 또는 대각선 방향으로 승리조건(최소 3, 최대 게임판의 행 숫자)으로 설정한 숫자로 놓였다면 해당 마크를 놓은 플레이어가 승리합니다.
+- 모든 칸이 마킹되었지만 어느 플레이어도 승리하지 못한 경우 무승부가 됩니다.
+- 각 플레이어는 게임 종료 전일 경우 각자 3회까지 무르기가 가능합니다. 무르기를 하면 마지막 마크가 놓이기 전의 상황으로 돌아갑니다.
 
-In the project directory, you can run:
+<br/>
+<br/>
 
-### `npm start`
+## 🚀 구현해야 할 화면
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. 홈
+   - `게임 시작` 버튼
+   - `게임 보기` 버튼
+2. 게임 설정
+   - 게임판 크기 설정
+   - 각 플레이어의 마크 / 색상 설정
+     - 기본값: 플레이어 1 - X, 파랑 / 플레이어 2 - O, 빨강
+     - 선택 가능: 동그라미, 세모, 네모, 엑스 등
+     - 선택 가능: 색 설정
+   - 먼저 마크를 놓는 플레이어 설정
+     - 기본값: 랜덤
+   - `시작` 버튼
+3. 게임 화면
+   - `게임 보드`
+   - 두 플레이어의 정보 (마크, 마크색, 남은 무르기 횟수)
+   - 현재 마크를 놓는 플레이어의 정보
+   - `홈으로 돌아가기` 버튼
+4. 기록된 게임 보기
+   - 게임 종료 후 게임 화면
+   - 게임판 각 마크에 순서 표시
+   - `홈으로 돌아가기` 버튼
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<br/>
+<br/>
 
-### `npm test`
+## 📃 구현할 기능 목록 (추후 수정 가능)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 0️⃣ 화면 구현
 
-### `npm run build`
+- [ ] 홈
+- [ ] 게임 설정
+- [ ] 게임 화면
+- [ ] 기록된 게임
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1️⃣ 게임 보드
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [ ] 3x3, 4x4, 5x5, 그이상 게임 보드 구현
+- [ ] 보드 클릭 시 마크 표시 후 플레이어 변경
+  - [ ] 가로 / 세로 / 대각선 방향 승리 조건(최소 3, 최대 게임판의 행 숫자) 설정
+- [ ] `무르기 버튼` 클릭 시 직전으로 돌아가기
+- [ ] 종료 후 게임 기록 저장
+  - [ ] 게임 종료 후 게임 보드 구현
+  - [ ] 각 마크 당 순서 구현
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 2️⃣ 플레이어
 
-### `npm run eject`
+- [ ] 플레이어의 마크, 색 설정 (dropdown 예정)
+- [ ] 시작 플레이어 설정
+- [ ] 각 플레이어 당 `무르기` 3번으로 제한
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<br/>
+<br/>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 커밋 메세지
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- `feat` : 새로운 기능을 추가
+- `fix` : 버그 고치기
+- `style` : 코드 포맷 변경, 세미 콜론 누락, 코드 수정이 없는 경우
+- `refactor` : 코드 리팩토링
+- `comment` : 주석 추가 및 변경
+- `docs` : README 등의 문서 수정
+- `test` : test 추가
+- `chore` : 빌드 테스트 업데이트
+- `rename` : 파일, 폴더명 수정 혹은 이동
+- `remove` : 파일 삭제
