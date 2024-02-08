@@ -5,4 +5,23 @@
 
 body {
   font-family: "Gugi", sans-serif;
+  background-color: #000000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    padding: 40px;
+  }
 }
