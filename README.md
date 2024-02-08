@@ -75,6 +75,7 @@
 - `comment` : 주석 추가 및 변경
 - `docs` : README 등의 문서 수정
 - `test` : test 추가
-- `chore` : 빌드 테스트 업데이트
+- `design` : UI 구현
+- `chore` : 라이브러리 install 등
 - `rename` : 파일, 폴더명 수정 혹은 이동
 - `remove` : 파일 삭제
