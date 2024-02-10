@@ -1,0 +1,24 @@
+{
+  "settings": [
+    {
+      "id": "f4cd",
+      "boardSize": "3X3",
+      "winning": 3,
+      "player1Mark": "X",
+      "player1MarkColor": "blue",
+      "player2Mark": "O",
+      "player2MarkColor": "red",
+      "startingPlayer": "random"
+    },
+    {
+      "id": "f452",
+      "boardSize": "4",
+      "winning": 4,
+      "player1Mark": "O",
+      "player1MarkColor": "yellow",
+      "player2Mark": "□",
+      "player2MarkColor": "blue",
+      "startingPlayer": "player2"
+    }
+  ]
+}
