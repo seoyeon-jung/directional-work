@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import axios from "axios";
 
 export default function GameSetting() {
   const navigate = useNavigate();
@@ -11,6 +12,32 @@ export default function GameSetting() {
   const [player2Mark, setPlayer2Mark] = useState("O");
   const [player2MarkColor, setPlayer2MarkColor] = useState("red");
   const [startingPlayer, setStartingPlayer] = useState("random");
+
+  const handleStartGame = () => {
+    const gameSettings = {
+      boardSize,
+      winning,
+      player1Mark,
+      player1MarkColor,
+      player2Mark,
+      player2MarkColor,
+      startingPlayer,
+    };
+
+    axios
+      .post("http://localhost:3001/settings", gameSettings)
+      .then((response) => {
+        console.log("게임 설정 정보가 성공적으로 저장되었습니다.");
+        console.log(response);
+        //navigate("/game"); // 게임 화면으로 이동
+      })
+      .catch((error) => {
+        console.error(
+          "게임 설정 정보를 저장하는 중 에러가 발생했습니다:",
+          error
+        );
+      });
+  };
 
   return (
     <div className="mx-auto mt-4 items-center w-full">
@@ -141,7 +168,7 @@ export default function GameSetting() {
       {/* 시작 버튼 */}
       <button
         className="bg-blue-500 hover:bg-blue-300 text-white font-bold py-2 px-4 rounded transition duration-300 mt-6 block mx-auto"
-        onClick={() => navigate("/game")}
+        onClick={handleStartGame}
       >
         게임 시작하기
       </button>
