@@ -15,7 +15,7 @@ export default function GameSetting() {
 
   const handleStartGame = () => {
     const gameSettings = {
-      boardSize,
+      boardSize: parseInt(boardSize),
       winning,
       player1Mark,
       player1MarkColor,
@@ -27,9 +27,9 @@ export default function GameSetting() {
     axios
       .post("http://localhost:3001/settings", gameSettings)
       .then((response) => {
-        console.log("게임 설정 정보가 성공적으로 저장되었습니다.");
-        console.log(response);
-        //navigate("/game"); // 게임 화면으로 이동
+        //console.log(response);
+        console.log(response.data);
+        navigate("/game"); // 게임 화면으로 이동
       })
       .catch((error) => {
         console.error(
