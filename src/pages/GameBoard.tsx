@@ -13,6 +13,13 @@ interface GameSettings {
   startingPlayer: string;
 }
 
+interface GameMove {
+  player: string | null;
+  row: number;
+  col: number;
+  markOrder: number;
+}
+
 export default function GameBoard() {
   const navigate = useNavigate();
   const { id } = useParams();
@@ -26,6 +33,7 @@ export default function GameBoard() {
     col: number;
   } | null>(null);
   const [winningMessage, setWinningMessage] = useState<string | null>(null);
+  const [gameMoves, setGameMoves] = useState<GameMove[]>([]); // game 저장
 
   useEffect(() => {
     axios
@@ -34,13 +42,14 @@ export default function GameBoard() {
         setSettings(response.data as GameSettings);
         initializeBoard(response.data.boardSize);
         setCurrentPlayer(response.data.startingPlayer);
+        saveGameRecord(null, id); // 게임 ID를 전달하여 저장
       })
       .catch((error) => {
         console.error("Error: ", error);
       });
   }, [id]);
 
-  // game board
+  // 게임 보드 초기화
   const initializeBoard = (boardSize: number) => {
     const newBoard: (null | string)[][] = [];
     for (let i = 0; i < boardSize; i++) {
@@ -53,9 +62,9 @@ export default function GameBoard() {
     setBoard(newBoard);
   };
 
-  // cell click
+  // 셀 클릭 이벤트
   const handleCellClick = (rowIndex: number, colIndex: number) => {
-    if (!board[rowIndex][colIndex] && !winningMessage) {
+    if (!board[rowIndex][colIndex] && !winningMessage && currentPlayer) {
       const newBoard = [...board];
       newBoard[rowIndex][colIndex] =
         currentPlayer === "플레이어1"
@@ -63,6 +72,7 @@ export default function GameBoard() {
           : settings!.player2Mark;
       setBoard(newBoard);
       setLastClickedCell({ row: rowIndex, col: colIndex });
+      saveGameMove(currentPlayer, rowIndex, colIndex); // 클릭된 셀 정보 저장
       checkWinner(newBoard, rowIndex, colIndex);
       setCurrentPlayer(
         currentPlayer === "플레이어1" ? "플레이어2" : "플레이어1"
@@ -70,6 +80,7 @@ export default function GameBoard() {
     }
   };
 
+  // 승리자 확인
   const checkWinner = (
     currentBoard: (null | string)[][],
     rowIndex: number,
@@ -113,18 +124,15 @@ export default function GameBoard() {
       }
 
       if (count >= settings!.winning) {
-        // Game won
         setWinningMessage(`${currentPlayer} wins!`);
-        // Save game record
-        saveGameRecord(currentPlayer);
+        saveGameRecord(currentPlayer, id); // 게임 ID를 전달하여 저장
         return;
       }
     }
 
     if (isBoardFull() && !checkDraw()) {
-      // Draw
       setWinningMessage("무승부!");
-      saveGameRecord("무승부");
+      saveGameRecord("무승부", id); // 게임 ID를 전달하여 저장
     }
   };
 
@@ -150,10 +158,7 @@ export default function GameBoard() {
     }
   };
 
-  const saveGameRecord = (winner: string | null) => {
-    console.log(`winner: ${winner}`);
-  };
-
+  // 보드가 가득 찼는지 확인
   const isBoardFull = () => {
     for (let i = 0; i < board.length; i++) {
       for (let j = 0; j < board[i].length; j++) {
@@ -165,12 +170,13 @@ export default function GameBoard() {
     return true;
   };
 
+  // 무승부 확인
   const checkDraw = () => {
     const { winning } = settings!;
     const rows = board.length;
     const cols = board[0].length;
 
-    // 가로 계산
+    // 가로 확인
     for (let i = 0; i < rows; i++) {
       for (let j = 0; j <= cols - winning; j++) {
         let count = 1;
@@ -184,7 +190,7 @@ export default function GameBoard() {
       }
     }
 
-    // 세로 계산
+    // 세로 확인
     for (let i = 0; i <= rows - winning; i++) {
       for (let j = 0; j < cols; j++) {
         let count = 1;
@@ -198,7 +204,7 @@ export default function GameBoard() {
       }
     }
 
-    // 왼쪽 위에서부터 오른쪽 끝까지 대각선 계산
+    // 대각선 확인 (왼쪽 위에서 오른쪽 아래로)
     for (let i = 0; i <= rows - winning; i++) {
       for (let j = 0; j <= cols - winning; j++) {
         let count = 1;
@@ -212,7 +218,7 @@ export default function GameBoard() {
       }
     }
 
-    // 오른쪽 위부터 왼쪽 끝까지 계산
+    // 대각선 확인 (오른쪽 위에서 왼쪽 아래로)
     for (let i = 0; i <= rows - winning; i++) {
       for (let j = winning - 1; j < cols; j++) {
         let count = 1;
@@ -227,6 +233,38 @@ export default function GameBoard() {
     }
 
     return false;
+  };
+
+  // 게임 이동 저장
+  const saveGameMove = (player: string, row: number, col: number) => {
+    const markOrder =
+      gameMoves.filter((move) => move.player === player).length + 1; // 해당 플레이어의 마크 순서 계산
+    const newMove: GameMove = { player, row, col, markOrder };
+    setGameMoves([...gameMoves, newMove]); // 이전 상태와 새로운 이동 추가
+  };
+
+  // 게임 기록 저장
+  const saveGameRecord = (
+    winner: string | null,
+    gameId: string | undefined
+  ) => {
+    if (gameId) {
+      // gameId가 존재하는 경우에만 실행
+      const gameRecord = {
+        id: gameId, // 게임 ID 추가
+        winner,
+        moves: gameMoves,
+      };
+
+      axios
+        .post("http://localhost:3001/games", gameRecord)
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.error("게임 기록 저장 중 오류가 발생했습니다:", error);
+        });
+    }
   };
 
   return (
@@ -299,7 +337,7 @@ export default function GameBoard() {
         </button>
       </div>
 
-      {/* game 종료 메세지 출력 */}
+      {/* 게임 종료 메시지 출력 */}
       <div className="mt-6 text-center">
         <p>{winningMessage}</p>
         <button
