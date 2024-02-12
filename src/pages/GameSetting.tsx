@@ -28,8 +28,9 @@ export default function GameSetting() {
       .post("http://localhost:3001/settings", gameSettings)
       .then((response) => {
         //console.log(response);
-        console.log(response.data);
-        navigate("/game"); // 게임 화면으로 이동
+        //console.log(response.data);
+        const gameId = response.data.id;
+        navigate(`/game/${gameId}`); // 게임 화면으로 이동
       })
       .catch((error) => {
         console.error(

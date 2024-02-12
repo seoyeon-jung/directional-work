@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
 interface GameSettings {
   id: string;
@@ -15,21 +15,21 @@ interface GameSettings {
 
 export default function GameBoard() {
   const navigate = useNavigate();
+  const { id } = useParams();
   const [settings, setSettings] = useState<GameSettings | null>(null);
   const [board, setBoard] = useState<(null | string)[][]>([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/settings")
+      .get(`http://localhost:3001/settings/${id}`)
       .then((response) => {
-        setSettings(response.data[0] as GameSettings);
-        initializeBoard(response.data[0].boardSize);
-        //console.log(response.data[0]);
+        setSettings(response.data as GameSettings);
+        initializeBoard(response.data.boardSize);
       })
       .catch((error) => {
         console.error("Error: ", error);
       });
-  }, []);
+  }, [id]);
 
   // game board
   const initializeBoard = (boardSize: number) => {
@@ -48,18 +48,18 @@ export default function GameBoard() {
     <div>
       <div className="flex flex-col items-center justify-center">
         {/* 게임 보드 렌더링 */}
-        <div className="grid grid-cols-3 gap-4">
-          {board.map((row, rowIndex) =>
-            row.map((cell, colIndex) => (
+        {board.map((row, rowIndex) => (
+          <div key={rowIndex} className="flex">
+            {row.map((cell, colIndex) => (
               <div
                 key={`${rowIndex}-${colIndex}`}
-                className="bg-gray-200 border border-gray-400 h-16 w-16 flex items-center justify-center"
+                className="border border-gray-400 bg-white m-1 w-16 h-16 flex items-center justify-center"
               >
-                {/* 각 셀에 대한 렌더링 로직 */}
+                {/* 여기에 셀의 내용을 렌더링 */}
               </div>
-            ))
-          )}
-        </div>
+            ))}
+          </div>
+        ))}
 
         {/* 현재 플레이어 */}
         <div className="mt-4">
