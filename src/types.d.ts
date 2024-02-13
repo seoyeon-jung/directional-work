@@ -34,4 +34,5 @@ export interface GameRecordInfo {
   id: string;
   winner: string | null;
   moves: GameMove[];
+  settings: GameSettings;
 }
