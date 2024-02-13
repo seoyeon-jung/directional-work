@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 
 export default function GameSetting() {
   const navigate = useNavigate();
@@ -14,7 +15,10 @@ export default function GameSetting() {
   const [startingPlayer, setStartingPlayer] = useState("random");
 
   const handleStartGame = () => {
+    const gameId = uuidv4();
+
     const gameSettings = {
+      id: gameId,
       boardSize: parseInt(boardSize),
       winning,
       player1Mark,
@@ -58,7 +62,7 @@ export default function GameSetting() {
           <option value={3}>3x3</option>
           <option value={4}>4x4</option>
           <option value={5}>5x5</option>
-          <option value={5}>6x6</option>
+          <option value={6}>6x6</option>
         </select>
       </div>
 
@@ -83,7 +87,7 @@ export default function GameSetting() {
       {/* 플레이어의 마크, 마크의 색 설정 */}
       <div className="flex items-center mb-4">
         <label htmlFor="boardSize" className="mb-1 mr-3">
-          플레이어1 마크:
+          player1 마크:
         </label>
         <select
           id="player1Mark"
@@ -100,7 +104,7 @@ export default function GameSetting() {
 
       <div className="flex items-center mb-4">
         <label htmlFor="boardSize" className="mb-1 mr-4">
-          플레이어1 마크 색상:
+          player1 마크 색상:
         </label>
         <select
           id="player1MarkColor"
@@ -117,7 +121,7 @@ export default function GameSetting() {
 
       <div className="flex items-center mb-4">
         <label htmlFor="boardSize" className="mb-1 mr-3">
-          플레이어2 마크:
+          player2 마크:
         </label>
         <select
           id="player2Mark"
@@ -134,7 +138,7 @@ export default function GameSetting() {
 
       <div className="flex items-center mb-4">
         <label htmlFor="boardSize" className="mb-1 mr-4">
-          플레이어2 마크 색상:
+          player2 마크 색상:
         </label>
         <select
           id="player2MarkColor"
@@ -160,9 +164,9 @@ export default function GameSetting() {
           onChange={(e) => setStartingPlayer(e.target.value)}
           className="w-full p-2 border rounded text-black"
         >
-          <option value="random">랜덤</option>
-          <option value="player1">플레이어 1</option>
-          <option value="player2">플레이어 2</option>
+          <option value="random">random</option>
+          <option value="player1">player 1</option>
+          <option value="player2">player 2</option>
         </select>
       </div>
 

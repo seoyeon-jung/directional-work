@@ -41,8 +41,15 @@ export default function GameBoard() {
       .then((response) => {
         setSettings(response.data as GameSettings);
         initializeBoard(response.data.boardSize);
-        setCurrentPlayer(response.data.startingPlayer);
-        saveGameRecord(null, id); // 게임 ID를 전달하여 저장
+
+        // staringplayer가 random인 경우 계산
+        if (response.data.startingPlayer === "random") {
+          const randomStartingPlayer =
+            Math.random() < 0.5 ? "player1" : "player2";
+          setCurrentPlayer(randomStartingPlayer);
+        } else {
+          setCurrentPlayer(response.data.startingPlayer);
+        }
       })
       .catch((error) => {
         console.error("Error: ", error);
@@ -67,16 +74,14 @@ export default function GameBoard() {
     if (!board[rowIndex][colIndex] && !winningMessage && currentPlayer) {
       const newBoard = [...board];
       newBoard[rowIndex][colIndex] =
-        currentPlayer === "플레이어1"
+        currentPlayer === "player1"
           ? settings!.player1Mark
           : settings!.player2Mark;
       setBoard(newBoard);
       setLastClickedCell({ row: rowIndex, col: colIndex });
       saveGameMove(currentPlayer, rowIndex, colIndex); // 클릭된 셀 정보 저장
       checkWinner(newBoard, rowIndex, colIndex);
-      setCurrentPlayer(
-        currentPlayer === "플레이어1" ? "플레이어2" : "플레이어1"
-      );
+      setCurrentPlayer(currentPlayer === "player1" ? "player2" : "player1");
     }
   };
 
@@ -139,7 +144,7 @@ export default function GameBoard() {
   // 무르기
   const handleUndo = () => {
     const currentPlayerMovesLeft =
-      currentPlayer === "플레이어1" ? player1MovesLeft : player2MovesLeft;
+      currentPlayer === "player1" ? player1MovesLeft : player2MovesLeft;
 
     if (currentPlayerMovesLeft > 0 && lastClickedCell && !winningMessage) {
       const { row, col } = lastClickedCell;
@@ -147,7 +152,7 @@ export default function GameBoard() {
       newBoard[row][col] = null;
       setBoard(newBoard);
 
-      if (currentPlayer === "플레이어1") {
+      if (currentPlayer === "player1") {
         setPlayer1MovesLeft(player1MovesLeft - 1);
       } else {
         setPlayer2MovesLeft(player2MovesLeft - 1);
@@ -237,8 +242,7 @@ export default function GameBoard() {
 
   // 게임 이동 저장
   const saveGameMove = (player: string, row: number, col: number) => {
-    const markOrder =
-      gameMoves.filter((move) => move.player === player).length + 1; // 해당 플레이어의 마크 순서 계산
+    const markOrder = gameMoves.length + 1; // 이동이 순차적으로 저장되므로 게임 이동 배열의 길이를 사용
     const newMove: GameMove = { player, row, col, markOrder };
     setGameMoves([...gameMoves, newMove]); // 이전 상태와 새로운 이동 추가
   };
@@ -301,7 +305,7 @@ export default function GameBoard() {
         {/* 플레이어 정보 표시 */}
         <div className="flex mt-4">
           <div className="mr-8">
-            <p className="text-2xl">플레이어 1</p>
+            <p className="text-2xl">Player 1</p>
             {settings && (
               <>
                 <p>마크: {settings.player1Mark}</p>
@@ -311,7 +315,7 @@ export default function GameBoard() {
             )}
           </div>
           <div>
-            <p className="text-2xl">플레이어 2</p>
+            <p className="text-2xl">Player 2</p>
             {settings && (
               <>
                 <p>마크: {settings.player2Mark}</p>
@@ -329,8 +333,8 @@ export default function GameBoard() {
           className="bg-blue-500 hover:bg-blue-300 text-white font-bold py-2 px-4 rounded transition duration-300 mt-6 block mx-auto"
           onClick={handleUndo}
           disabled={
-            (currentPlayer === "플레이어1" && player1MovesLeft === 0) ||
-            (currentPlayer === "플레이어2" && player2MovesLeft === 0)
+            (currentPlayer === "player1" && player1MovesLeft === 0) ||
+            (currentPlayer === "player2" && player2MovesLeft === 0)
           }
         >
           무르기
