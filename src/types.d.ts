@@ -14,11 +14,24 @@ export type StartingPlayerOption = "random" | "player1" | "player2";
 
 export interface GameSettings {
   id: string;
-  boardSize: BoardSize;
+  boardSize: number;
   winning: number;
-  player1Mark: Player;
+  player1Mark: string;
   player1MarkColor: string;
-  player2Mark: Player;
+  player2Mark: string;
   player2MarkColor: string;
-  startingPlayer: StartingPlayerOption;
+  startingPlayer: string;
+}
+
+export interface GameMove {
+  player: string | null;
+  row: number;
+  col: number;
+  markOrder: number;
+}
+
+export interface GameRecordInfo {
+  id: string;
+  winner: string | null;
+  moves: GameMove[];
 }

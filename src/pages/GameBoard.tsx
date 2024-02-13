@@ -1,24 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-
-interface GameSettings {
-  id: string;
-  boardSize: number;
-  winning: number;
-  player1Mark: string;
-  player1MarkColor: string;
-  player2Mark: string;
-  player2MarkColor: string;
-  startingPlayer: string;
-}
-
-interface GameMove {
-  player: string | null;
-  row: number;
-  col: number;
-  markOrder: number;
-}
+import { GameMove, GameSettings } from "../types";
 
 export default function GameBoard() {
   const navigate = useNavigate();
@@ -252,18 +235,19 @@ export default function GameBoard() {
     winner: string | null,
     gameId: string | undefined
   ) => {
-    if (gameId) {
+    if (gameId && settings) {
       // gameId가 존재하는 경우에만 실행
       const gameRecord = {
         id: gameId, // 게임 ID 추가
         winner,
         moves: gameMoves,
+        settings: settings, // 게임 설정 정보 추가
       };
 
       axios
         .post("http://localhost:3001/games", gameRecord)
         .then((response) => {
-          console.log(response.data);
+          //console.log(response.data);
         })
         .catch((error) => {
           console.error("게임 기록 저장 중 오류가 발생했습니다:", error);
