@@ -5,6 +5,8 @@ import { useNavigate } from "react-router";
 
 export default function GameRecord() {
   const [gameRecords, setGameRecords] = useState<GameRecordInfo[]>([]);
+  const [visibleRecords, setVisibleRecords] = useState<GameRecordInfo[]>([]);
+  const [showMore, setShowMore] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,6 +19,15 @@ export default function GameRecord() {
         console.error("게임 기록을 불러오는 중 오류가 발생했습니다: ", error);
       });
   }, []);
+
+  useEffect(() => {
+    setVisibleRecords(gameRecords.slice(0, 6));
+  }, [gameRecords]);
+
+  const handleShowMore = () => {
+    setVisibleRecords(gameRecords);
+    setShowMore(true);
+  };
 
   const renderGameRecord = (gameRecord: GameRecordInfo) => {
     const { settings, moves } = gameRecord;
@@ -78,7 +89,19 @@ export default function GameRecord() {
       <h1 className="text-3xl text-center font-bold mb-4">
         게임 기록 전체보기
       </h1>
-      {gameRecords.map(renderGameRecord)}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {visibleRecords.map(renderGameRecord)}
+      </div>
+      {!showMore && gameRecords.length > 6 && (
+        <div className="text-center mt-4">
+          <button
+            className="bg-blue-500 hover:bg-blue-300 text-white font-bold py-2 px-4 rounded transition duration-300"
+            onClick={handleShowMore}
+          >
+            더보기
+          </button>
+        </div>
+      )}
     </div>
   );
 }
