@@ -37,8 +37,37 @@ export interface GameRecordInfo {
   settings: GameSettings;
 }
 
-interface ButtonProps {
+export interface ButtonProps {
   onClick?: () => void;
   to?: string;
   children?: React.ReactNode;
+}
+
+export interface CellProps {
+  row: number;
+  col: number;
+  onClick: (row: number, col: number) => void;
+  mark: string | null;
+  currentPlayer: string | null;
+  player1Mark: string;
+  player1MarkColor: string;
+  player2Mark: string;
+  player2MarkColor: string;
+}
+
+export interface PlayerInfoProps {
+  currentPlayer: string | null;
+  player1Mark: string;
+  player1MarkColor: string;
+  player2Mark: string;
+  player2MarkColor: string;
+  player1MovesLeft: number;
+  player2MovesLeft: number;
+}
+
+export interface UndoButtonProps {
+  onClick: () => void;
+  currentPlayer: string | null;
+  player1MovesLeft: number;
+  player2MovesLeft: number;
 }
