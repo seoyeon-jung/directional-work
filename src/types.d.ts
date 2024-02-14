@@ -36,3 +36,9 @@ export interface GameRecordInfo {
   moves: GameMove[];
   settings: GameSettings;
 }
+
+interface ButtonProps {
+  onClick?: () => void;
+  to?: string;
+  children?: React.ReactNode;
+}

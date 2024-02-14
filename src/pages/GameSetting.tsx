@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
+import Button from "../components/shared/Button";
 
 export default function GameSetting() {
   const navigate = useNavigate();
@@ -171,12 +172,7 @@ export default function GameSetting() {
       </div>
 
       {/* 시작 버튼 */}
-      <button
-        className="bg-blue-500 hover:bg-blue-300 text-white font-bold py-2 px-4 rounded transition duration-300 mt-6 block mx-auto"
-        onClick={handleStartGame}
-      >
-        게임 시작하기
-      </button>
+      <Button onClick={handleStartGame}>게임 시작하기</Button>
     </div>
   );
 }

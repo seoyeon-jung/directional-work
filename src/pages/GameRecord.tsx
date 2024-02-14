@@ -1,13 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { GameRecordInfo, GameMove } from "../types";
-import { useNavigate } from "react-router";
+import Button from "../components/shared/Button";
 
 export default function GameRecord() {
   const [gameRecords, setGameRecords] = useState<GameRecordInfo[]>([]);
   const [visibleRecords, setVisibleRecords] = useState<GameRecordInfo[]>([]);
   const [showMore, setShowMore] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -73,12 +72,7 @@ export default function GameRecord() {
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">
             게임 결과: {gameRecord.winner || "무승부"}
           </h5>
-          <button
-            className="bg-blue-500 hover:bg-blue-300 text-white font-bold py-2 px-4 mb-4 rounded transition duration-300 mt-4 block mx-auto"
-            onClick={() => navigate(`/record/${gameRecord.id}`)}
-          >
-            자세히 보러가기
-          </button>
+          <Button to={`/record/${gameRecord.id}`}>자세히 보러가기</Button>
         </div>
       </div>
     );
@@ -94,12 +88,7 @@ export default function GameRecord() {
       </div>
       {!showMore && gameRecords.length > 6 && (
         <div className="text-center mt-4">
-          <button
-            className="bg-blue-500 hover:bg-blue-300 text-white font-bold py-2 px-4 rounded transition duration-300"
-            onClick={handleShowMore}
-          >
-            더보기
-          </button>
+          <Button onClick={handleShowMore}>더보기</Button>
         </div>
       )}
     </div>
