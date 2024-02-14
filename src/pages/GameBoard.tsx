@@ -23,7 +23,7 @@ const GameBoard = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API}/${id}`)
+      .get(`${process.env.REACT_APP_API}/settings/${id}`)
       .then((response) => {
         setSettings(response.data as GameSettings);
         initializeBoard(response.data.boardSize);
