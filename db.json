@@ -1,8 +1,18 @@
 {
   "settings": [
     {
-      "id": "f4cd",
-      "boardSize": "3X3",
+      "id": "734c8b09-bbde-46c3-8c9f-7f9b2d9dfa15",
+      "boardSize": 5,
+      "winning": 5,
+      "player1Mark": "O",
+      "player1MarkColor": "blue",
+      "player2Mark": "□",
+      "player2MarkColor": "green",
+      "startingPlayer": "player2"
+    },
+    {
+      "id": "9552b785-b292-4b08-890d-437057060120",
+      "boardSize": 3,
       "winning": 3,
       "player1Mark": "X",
       "player1MarkColor": "blue",
@@ -11,14 +21,1040 @@
       "startingPlayer": "random"
     },
     {
-      "id": "f452",
-      "boardSize": "4",
-      "winning": 4,
-      "player1Mark": "O",
+      "id": "28d87c85-95bc-4a6b-964c-832547280e66",
+      "boardSize": 6,
+      "winning": 6,
+      "player1Mark": "◇",
       "player1MarkColor": "yellow",
-      "player2Mark": "□",
-      "player2MarkColor": "blue",
+      "player2Mark": "X",
+      "player2MarkColor": "red",
+      "startingPlayer": "player1"
+    },
+    {
+      "id": "91777fac-3dd9-48e3-b8a1-ed3892fcbe02",
+      "boardSize": 4,
+      "winning": 4,
+      "player1Mark": "X",
+      "player1MarkColor": "blue",
+      "player2Mark": "O",
+      "player2MarkColor": "red",
       "startingPlayer": "player2"
+    },
+    {
+      "id": "24906c7e-c2e5-40b1-a738-ebc347a673f7",
+      "boardSize": 5,
+      "winning": 5,
+      "player1Mark": "□",
+      "player1MarkColor": "red",
+      "player2Mark": "O",
+      "player2MarkColor": "yellow",
+      "startingPlayer": "player1"
+    },
+    {
+      "id": "80295f8d-6d2d-48eb-b44b-3861dbe63dd5",
+      "boardSize": 3,
+      "winning": 3,
+      "player1Mark": "□",
+      "player1MarkColor": "yellow",
+      "player2Mark": "◇",
+      "player2MarkColor": "blue",
+      "startingPlayer": "random"
+    },
+    {
+      "id": "7101d618-370d-43f2-867c-a6f2c045bb5a",
+      "boardSize": 6,
+      "winning": 6,
+      "player1Mark": "O",
+      "player1MarkColor": "blue",
+      "player2Mark": "X",
+      "player2MarkColor": "green",
+      "startingPlayer": "player1"
+    },
+    {
+      "id": "f707b67b-db58-4a76-99a4-4a2b8ad45498",
+      "boardSize": 3,
+      "winning": 3,
+      "player1Mark": "X",
+      "player1MarkColor": "blue",
+      "player2Mark": "O",
+      "player2MarkColor": "red",
+      "startingPlayer": "random"
+    }
+  ],
+  "games": [
+    {
+      "id": "734c8b09-bbde-46c3-8c9f-7f9b2d9dfa15",
+      "winner": "무승부",
+      "moves": [
+        {
+          "player": "player2",
+          "row": 3,
+          "col": 2,
+          "markOrder": 1
+        },
+        {
+          "player": "player1",
+          "row": 2,
+          "col": 2,
+          "markOrder": 2
+        },
+        {
+          "player": "player2",
+          "row": 2,
+          "col": 1,
+          "markOrder": 3
+        },
+        {
+          "player": "player1",
+          "row": 1,
+          "col": 1,
+          "markOrder": 4
+        },
+        {
+          "player": "player2",
+          "row": 1,
+          "col": 2,
+          "markOrder": 5
+        },
+        {
+          "player": "player1",
+          "row": 2,
+          "col": 3,
+          "markOrder": 6
+        },
+        {
+          "player": "player2",
+          "row": 1,
+          "col": 3,
+          "markOrder": 7
+        },
+        {
+          "player": "player1",
+          "row": 3,
+          "col": 3,
+          "markOrder": 8
+        },
+        {
+          "player": "player2",
+          "row": 3,
+          "col": 4,
+          "markOrder": 9
+        },
+        {
+          "player": "player1",
+          "row": 2,
+          "col": 4,
+          "markOrder": 10
+        },
+        {
+          "player": "player2",
+          "row": 1,
+          "col": 4,
+          "markOrder": 11
+        },
+        {
+          "player": "player1",
+          "row": 0,
+          "col": 4,
+          "markOrder": 12
+        },
+        {
+          "player": "player2",
+          "row": 0,
+          "col": 3,
+          "markOrder": 13
+        },
+        {
+          "player": "player1",
+          "row": 0,
+          "col": 2,
+          "markOrder": 14
+        },
+        {
+          "player": "player2",
+          "row": 0,
+          "col": 1,
+          "markOrder": 15
+        },
+        {
+          "player": "player1",
+          "row": 0,
+          "col": 0,
+          "markOrder": 16
+        },
+        {
+          "player": "player2",
+          "row": 1,
+          "col": 0,
+          "markOrder": 17
+        },
+        {
+          "player": "player1",
+          "row": 2,
+          "col": 0,
+          "markOrder": 18
+        },
+        {
+          "player": "player2",
+          "row": 3,
+          "col": 0,
+          "markOrder": 19
+        },
+        {
+          "player": "player1",
+          "row": 3,
+          "col": 1,
+          "markOrder": 20
+        },
+        {
+          "player": "player2",
+          "row": 4,
+          "col": 1,
+          "markOrder": 21
+        },
+        {
+          "player": "player1",
+          "row": 4,
+          "col": 2,
+          "markOrder": 22
+        },
+        {
+          "player": "player2",
+          "row": 4,
+          "col": 4,
+          "markOrder": 23
+        },
+        {
+          "player": "player1",
+          "row": 4,
+          "col": 3,
+          "markOrder": 24
+        }
+      ],
+      "settings": {
+        "id": "734c8b09-bbde-46c3-8c9f-7f9b2d9dfa15",
+        "boardSize": 5,
+        "winning": 5,
+        "player1Mark": "O",
+        "player1MarkColor": "blue",
+        "player2Mark": "□",
+        "player2MarkColor": "green",
+        "startingPlayer": "player2"
+      }
+    },
+    {
+      "id": "9552b785-b292-4b08-890d-437057060120",
+      "winner": "player2",
+      "moves": [
+        {
+          "player": "player2",
+          "row": 1,
+          "col": 1,
+          "markOrder": 1
+        },
+        {
+          "player": "player1",
+          "row": 2,
+          "col": 1,
+          "markOrder": 2
+        },
+        {
+          "player": "player2",
+          "row": 1,
+          "col": 0,
+          "markOrder": 3
+        },
+        {
+          "player": "player1",
+          "row": 0,
+          "col": 0,
+          "markOrder": 4
+        },
+        {
+          "player": "player2",
+          "row": 0,
+          "col": 1,
+          "markOrder": 5
+        },
+        {
+          "player": "player1",
+          "row": 1,
+          "col": 2,
+          "markOrder": 6
+        },
+        {
+          "player": "player2",
+          "row": 0,
+          "col": 2,
+          "markOrder": 7
+        },
+        {
+          "player": "player1",
+          "row": 2,
+          "col": 2,
+          "markOrder": 8
+        }
+      ],
+      "settings": {
+        "id": "9552b785-b292-4b08-890d-437057060120",
+        "boardSize": 3,
+        "winning": 3,
+        "player1Mark": "X",
+        "player1MarkColor": "blue",
+        "player2Mark": "O",
+        "player2MarkColor": "red",
+        "startingPlayer": "random"
+      }
+    },
+    {
+      "id": "28d87c85-95bc-4a6b-964c-832547280e66",
+      "winner": "player1",
+      "moves": [
+        {
+          "player": "player1",
+          "row": 2,
+          "col": 3,
+          "markOrder": 1
+        },
+        {
+          "player": "player2",
+          "row": 3,
+          "col": 3,
+          "markOrder": 2
+        },
+        {
+          "player": "player1",
+          "row": 3,
+          "col": 4,
+          "markOrder": 3
+        },
+        {
+          "player": "player2",
+          "row": 3,
+          "col": 5,
+          "markOrder": 4
+        },
+        {
+          "player": "player1",
+          "row": 4,
+          "col": 5,
+          "markOrder": 5
+        },
+        {
+          "player": "player2",
+          "row": 4,
+          "col": 4,
+          "markOrder": 6
+        },
+        {
+          "player": "player1",
+          "row": 4,
+          "col": 3,
+          "markOrder": 7
+        },
+        {
+          "player": "player2",
+          "row": 2,
+          "col": 2,
+          "markOrder": 8
+        },
+        {
+          "player": "player1",
+          "row": 1,
+          "col": 2,
+          "markOrder": 9
+        },
+        {
+          "player": "player2",
+          "row": 1,
+          "col": 3,
+          "markOrder": 10
+        },
+        {
+          "player": "player1",
+          "row": 0,
+          "col": 3,
+          "markOrder": 11
+        },
+        {
+          "player": "player2",
+          "row": 0,
+          "col": 4,
+          "markOrder": 12
+        },
+        {
+          "player": "player1",
+          "row": 0,
+          "col": 5,
+          "markOrder": 13
+        },
+        {
+          "player": "player2",
+          "row": 1,
+          "col": 5,
+          "markOrder": 14
+        },
+        {
+          "player": "player1",
+          "row": 1,
+          "col": 4,
+          "markOrder": 15
+        },
+        {
+          "player": "player2",
+          "row": 2,
+          "col": 4,
+          "markOrder": 16
+        },
+        {
+          "player": "player1",
+          "row": 2,
+          "col": 5,
+          "markOrder": 17
+        },
+        {
+          "player": "player2",
+          "row": 3,
+          "col": 1,
+          "markOrder": 18
+        },
+        {
+          "player": "player1",
+          "row": 3,
+          "col": 2,
+          "markOrder": 19
+        },
+        {
+          "player": "player2",
+          "row": 4,
+          "col": 0,
+          "markOrder": 20
+        },
+        {
+          "player": "player1",
+          "row": 4,
+          "col": 1,
+          "markOrder": 21
+        },
+        {
+          "player": "player2",
+          "row": 5,
+          "col": 1,
+          "markOrder": 22
+        }
+      ],
+      "settings": {
+        "id": "28d87c85-95bc-4a6b-964c-832547280e66",
+        "boardSize": 6,
+        "winning": 6,
+        "player1Mark": "◇",
+        "player1MarkColor": "yellow",
+        "player2Mark": "X",
+        "player2MarkColor": "red",
+        "startingPlayer": "player1"
+      }
+    },
+    {
+      "id": "91777fac-3dd9-48e3-b8a1-ed3892fcbe02",
+      "winner": "무승부",
+      "moves": [
+        {
+          "player": "player2",
+          "row": 2,
+          "col": 1,
+          "markOrder": 1
+        },
+        {
+          "player": "player1",
+          "row": 2,
+          "col": 2,
+          "markOrder": 2
+        },
+        {
+          "player": "player2",
+          "row": 1,
+          "col": 3,
+          "markOrder": 3
+        },
+        {
+          "player": "player1",
+          "row": 0,
+          "col": 3,
+          "markOrder": 4
+        },
+        {
+          "player": "player2",
+          "row": 0,
+          "col": 2,
+          "markOrder": 5
+        },
+        {
+          "player": "player1",
+          "row": 1,
+          "col": 2,
+          "markOrder": 6
+        },
+        {
+          "player": "player2",
+          "row": 2,
+          "col": 3,
+          "markOrder": 7
+        },
+        {
+          "player": "player1",
+          "row": 3,
+          "col": 3,
+          "markOrder": 8
+        },
+        {
+          "player": "player2",
+          "row": 3,
+          "col": 2,
+          "markOrder": 9
+        },
+        {
+          "player": "player1",
+          "row": 1,
+          "col": 1,
+          "markOrder": 10
+        },
+        {
+          "player": "player2",
+          "row": 3,
+          "col": 1,
+          "markOrder": 11
+        },
+        {
+          "player": "player1",
+          "row": 0,
+          "col": 1,
+          "markOrder": 12
+        },
+        {
+          "player": "player2",
+          "row": 0,
+          "col": 0,
+          "markOrder": 13
+        },
+        {
+          "player": "player1",
+          "row": 1,
+          "col": 0,
+          "markOrder": 14
+        },
+        {
+          "player": "player2",
+          "row": 2,
+          "col": 0,
+          "markOrder": 15
+        }
+      ],
+      "settings": {
+        "id": "91777fac-3dd9-48e3-b8a1-ed3892fcbe02",
+        "boardSize": 4,
+        "winning": 4,
+        "player1Mark": "X",
+        "player1MarkColor": "blue",
+        "player2Mark": "O",
+        "player2MarkColor": "red",
+        "startingPlayer": "player2"
+      }
+    },
+    {
+      "id": "24906c7e-c2e5-40b1-a738-ebc347a673f7",
+      "winner": "무승부",
+      "moves": [
+        {
+          "player": "player1",
+          "row": 3,
+          "col": 4,
+          "markOrder": 1
+        },
+        {
+          "player": "player2",
+          "row": 3,
+          "col": 3,
+          "markOrder": 2
+        },
+        {
+          "player": "player1",
+          "row": 4,
+          "col": 3,
+          "markOrder": 3
+        },
+        {
+          "player": "player2",
+          "row": 4,
+          "col": 4,
+          "markOrder": 4
+        },
+        {
+          "player": "player1",
+          "row": 2,
+          "col": 3,
+          "markOrder": 5
+        },
+        {
+          "player": "player2",
+          "row": 2,
+          "col": 2,
+          "markOrder": 6
+        },
+        {
+          "player": "player1",
+          "row": 3,
+          "col": 2,
+          "markOrder": 7
+        },
+        {
+          "player": "player2",
+          "row": 1,
+          "col": 2,
+          "markOrder": 8
+        },
+        {
+          "player": "player1",
+          "row": 1,
+          "col": 3,
+          "markOrder": 9
+        },
+        {
+          "player": "player2",
+          "row": 0,
+          "col": 3,
+          "markOrder": 10
+        },
+        {
+          "player": "player1",
+          "row": 0,
+          "col": 2,
+          "markOrder": 11
+        },
+        {
+          "player": "player2",
+          "row": 0,
+          "col": 1,
+          "markOrder": 12
+        },
+        {
+          "player": "player1",
+          "row": 1,
+          "col": 1,
+          "markOrder": 13
+        },
+        {
+          "player": "player2",
+          "row": 2,
+          "col": 1,
+          "markOrder": 14
+        },
+        {
+          "player": "player1",
+          "row": 3,
+          "col": 1,
+          "markOrder": 15
+        },
+        {
+          "player": "player2",
+          "row": 4,
+          "col": 1,
+          "markOrder": 16
+        },
+        {
+          "player": "player1",
+          "row": 4,
+          "col": 2,
+          "markOrder": 17
+        },
+        {
+          "player": "player2",
+          "row": 2,
+          "col": 4,
+          "markOrder": 18
+        },
+        {
+          "player": "player1",
+          "row": 1,
+          "col": 4,
+          "markOrder": 19
+        },
+        {
+          "player": "player2",
+          "row": 0,
+          "col": 4,
+          "markOrder": 20
+        },
+        {
+          "player": "player1",
+          "row": 0,
+          "col": 0,
+          "markOrder": 21
+        },
+        {
+          "player": "player2",
+          "row": 1,
+          "col": 0,
+          "markOrder": 22
+        },
+        {
+          "player": "player1",
+          "row": 2,
+          "col": 0,
+          "markOrder": 23
+        },
+        {
+          "player": "player2",
+          "row": 3,
+          "col": 0,
+          "markOrder": 24
+        }
+      ],
+      "settings": {
+        "id": "24906c7e-c2e5-40b1-a738-ebc347a673f7",
+        "boardSize": 5,
+        "winning": 5,
+        "player1Mark": "□",
+        "player1MarkColor": "red",
+        "player2Mark": "O",
+        "player2MarkColor": "yellow",
+        "startingPlayer": "player1"
+      }
+    },
+    {
+      "id": "80295f8d-6d2d-48eb-b44b-3861dbe63dd5",
+      "winner": "player2",
+      "moves": [
+        {
+          "player": "player2",
+          "row": 2,
+          "col": 2,
+          "markOrder": 1
+        },
+        {
+          "player": "player1",
+          "row": 2,
+          "col": 1,
+          "markOrder": 2
+        },
+        {
+          "player": "player2",
+          "row": 2,
+          "col": 0,
+          "markOrder": 3
+        },
+        {
+          "player": "player1",
+          "row": 1,
+          "col": 0,
+          "markOrder": 4
+        },
+        {
+          "player": "player2",
+          "row": 1,
+          "col": 1,
+          "markOrder": 5
+        },
+        {
+          "player": "player1",
+          "row": 0,
+          "col": 1,
+          "markOrder": 6
+        }
+      ],
+      "settings": {
+        "id": "80295f8d-6d2d-48eb-b44b-3861dbe63dd5",
+        "boardSize": 3,
+        "winning": 3,
+        "player1Mark": "□",
+        "player1MarkColor": "yellow",
+        "player2Mark": "◇",
+        "player2MarkColor": "blue",
+        "startingPlayer": "random"
+      }
+    },
+    {
+      "id": "7101d618-370d-43f2-867c-a6f2c045bb5a",
+      "winner": "무승부",
+      "moves": [
+        {
+          "player": "player1",
+          "row": 5,
+          "col": 3,
+          "markOrder": 1
+        },
+        {
+          "player": "player2",
+          "row": 5,
+          "col": 4,
+          "markOrder": 2
+        },
+        {
+          "player": "player1",
+          "row": 4,
+          "col": 4,
+          "markOrder": 3
+        },
+        {
+          "player": "player2",
+          "row": 4,
+          "col": 3,
+          "markOrder": 4
+        },
+        {
+          "player": "player1",
+          "row": 3,
+          "col": 3,
+          "markOrder": 5
+        },
+        {
+          "player": "player2",
+          "row": 3,
+          "col": 4,
+          "markOrder": 6
+        },
+        {
+          "player": "player1",
+          "row": 2,
+          "col": 4,
+          "markOrder": 7
+        },
+        {
+          "player": "player2",
+          "row": 2,
+          "col": 3,
+          "markOrder": 8
+        },
+        {
+          "player": "player1",
+          "row": 1,
+          "col": 3,
+          "markOrder": 9
+        },
+        {
+          "player": "player2",
+          "row": 1,
+          "col": 4,
+          "markOrder": 10
+        },
+        {
+          "player": "player1",
+          "row": 0,
+          "col": 2,
+          "markOrder": 11
+        },
+        {
+          "player": "player2",
+          "row": 1,
+          "col": 2,
+          "markOrder": 12
+        },
+        {
+          "player": "player1",
+          "row": 2,
+          "col": 2,
+          "markOrder": 13
+        },
+        {
+          "player": "player2",
+          "row": 1,
+          "col": 1,
+          "markOrder": 14
+        },
+        {
+          "player": "player1",
+          "row": 2,
+          "col": 1,
+          "markOrder": 15
+        },
+        {
+          "player": "player2",
+          "row": 4,
+          "col": 1,
+          "markOrder": 16
+        },
+        {
+          "player": "player1",
+          "row": 3,
+          "col": 2,
+          "markOrder": 17
+        },
+        {
+          "player": "player2",
+          "row": 4,
+          "col": 2,
+          "markOrder": 18
+        },
+        {
+          "player": "player1",
+          "row": 3,
+          "col": 1,
+          "markOrder": 19
+        },
+        {
+          "player": "player2",
+          "row": 5,
+          "col": 1,
+          "markOrder": 20
+        },
+        {
+          "player": "player1",
+          "row": 5,
+          "col": 2,
+          "markOrder": 21
+        },
+        {
+          "player": "player2",
+          "row": 0,
+          "col": 5,
+          "markOrder": 22
+        },
+        {
+          "player": "player1",
+          "row": 1,
+          "col": 5,
+          "markOrder": 23
+        },
+        {
+          "player": "player2",
+          "row": 2,
+          "col": 5,
+          "markOrder": 24
+        },
+        {
+          "player": "player1",
+          "row": 3,
+          "col": 5,
+          "markOrder": 25
+        },
+        {
+          "player": "player2",
+          "row": 4,
+          "col": 5,
+          "markOrder": 26
+        },
+        {
+          "player": "player1",
+          "row": 5,
+          "col": 5,
+          "markOrder": 27
+        },
+        {
+          "player": "player2",
+          "row": 2,
+          "col": 0,
+          "markOrder": 28
+        },
+        {
+          "player": "player1",
+          "row": 3,
+          "col": 0,
+          "markOrder": 29
+        },
+        {
+          "player": "player2",
+          "row": 4,
+          "col": 0,
+          "markOrder": 30
+        },
+        {
+          "player": "player1",
+          "row": 5,
+          "col": 0,
+          "markOrder": 31
+        },
+        {
+          "player": "player2",
+          "row": 0,
+          "col": 0,
+          "markOrder": 32
+        },
+        {
+          "player": "player1",
+          "row": 0,
+          "col": 1,
+          "markOrder": 33
+        },
+        {
+          "player": "player2",
+          "row": 0,
+          "col": 4,
+          "markOrder": 34
+        },
+        {
+          "player": "player1",
+          "row": 0,
+          "col": 3,
+          "markOrder": 35
+        }
+      ],
+      "settings": {
+        "id": "7101d618-370d-43f2-867c-a6f2c045bb5a",
+        "boardSize": 6,
+        "winning": 6,
+        "player1Mark": "O",
+        "player1MarkColor": "blue",
+        "player2Mark": "X",
+        "player2MarkColor": "green",
+        "startingPlayer": "player1"
+      }
+    },
+    {
+      "id": "f707b67b-db58-4a76-99a4-4a2b8ad45498",
+      "winner": "player2",
+      "moves": [
+        {
+          "player": "player1",
+          "row": 2,
+          "col": 2,
+          "markOrder": 1
+        },
+        {
+          "player": "player2",
+          "row": 1,
+          "col": 1,
+          "markOrder": 2
+        },
+        {
+          "player": "player1",
+          "row": 2,
+          "col": 1,
+          "markOrder": 3
+        },
+        {
+          "player": "player2",
+          "row": 1,
+          "col": 2,
+          "markOrder": 4
+        },
+        {
+          "player": "player1",
+          "row": 0,
+          "col": 2,
+          "markOrder": 5
+        },
+        {
+          "player": "player2",
+          "row": 0,
+          "col": 1,
+          "markOrder": 6
+        },
+        {
+          "player": "player1",
+          "row": 0,
+          "col": 0,
+          "markOrder": 7
+        }
+      ],
+      "settings": {
+        "id": "f707b67b-db58-4a76-99a4-4a2b8ad45498",
+        "boardSize": 3,
+        "winning": 3,
+        "player1Mark": "X",
+        "player1MarkColor": "blue",
+        "player2Mark": "O",
+        "player2MarkColor": "red",
+        "startingPlayer": "random"
+      }
     }
   ]
 }
