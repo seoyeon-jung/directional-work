@@ -31,7 +31,7 @@ export default function GameSetting() {
     };
 
     axios
-      .post("http://localhost:3001/settings", gameSettings)
+      .post(`${process.env.REACT_APP_API}/settings`, gameSettings)
       .then((response) => {
         const gameId = response.data.id;
         navigate(`/game/${gameId}`); // 게임 화면으로 이동

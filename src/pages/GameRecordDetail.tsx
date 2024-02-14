@@ -10,7 +10,9 @@ export default function GameRecordDetail() {
   useEffect(() => {
     const fetchGameDetail = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/games/${id}`);
+        const response = await axios.get(
+          `${process.env.REACT_APP_API}/games/${id}`
+        );
         setGameDetail(response.data);
       } catch (error) {
         console.error("게임 기록을 불러오는 중 오류가 발생했습니다: ", error);

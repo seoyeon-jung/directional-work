@@ -23,7 +23,7 @@ const GameBoard = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/settings/${id}`)
+      .get(`${process.env.REACT_APP_API}/${id}`)
       .then((response) => {
         setSettings(response.data as GameSettings);
         initializeBoard(response.data.boardSize);
@@ -248,7 +248,7 @@ const GameBoard = () => {
       };
 
       axios
-        .post("http://localhost:3001/games", gameRecord)
+        .post(`${process.env.REACT_APP_API}/games`, gameRecord)
         .then((response) => {
           //console.log(response.data);
         })

@@ -10,7 +10,7 @@ export default function GameRecord() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/games")
+      .get(`${process.env.REACT_APP_API}/games`)
       .then((response) => {
         setGameRecords(response.data);
       })
